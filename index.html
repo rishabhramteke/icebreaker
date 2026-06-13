@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#6c4cf1" />
+  <title>Icebreaker</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Icebreaker" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="icon-btn" id="nav-deck" title="Cards">🃏</button>
+      <h1 class="brand">Icebreaker</h1>
+      <button class="icon-btn" id="nav-history" title="Score &amp; history">📊</button>
+    </header>
+
+    <!-- DECK VIEW -->
+    <main class="view view-deck" id="view-deck">
+      <p class="hint" id="deck-hint">Swipe right to take the challenge · left to pass</p>
+      <div class="card-stack" id="card-stack">
+        <!-- card injected here -->
+      </div>
+      <div class="deck-actions">
+        <button class="round-btn pass" id="btn-pass" title="Pass">✕</button>
+        <button class="round-btn shuffle" id="btn-shuffle" title="New line">↻</button>
+        <button class="round-btn accept" id="btn-accept" title="Take the challenge">→</button>
+      </div>
+    </main>
+
+    <!-- CHALLENGE VIEW -->
+    <main class="view view-challenge hidden" id="view-challenge">
+      <div class="challenge-card">
+        <span class="badge" id="challenge-badge">Challenge on</span>
+        <p class="challenge-line" id="challenge-line"></p>
+        <div class="timer" id="timer">5:00</div>
+        <p class="timer-sub" id="timer-sub">You've got 5 minutes. Go say it.</p>
+      </div>
+      <div class="challenge-actions">
+        <button class="big-btn missed" id="btn-missed">
+          <span class="big-icon">✕</span>
+          <span>Didn't do it</span>
+        </button>
+        <button class="big-btn done" id="btn-done">
+          <span class="big-icon">✓</span>
+          <span>Did it!</span>
+        </button>
+      </div>
+      <button class="text-btn" id="btn-cancel">Cancel challenge</button>
+    </main>
+
+    <!-- HISTORY / SCORE VIEW -->
+    <main class="view view-history hidden" id="view-history">
+      <div class="stats" id="stats"></div>
+      <h2 class="section-title">History</h2>
+      <div class="history-list" id="history-list"></div>
+      <button class="text-btn danger" id="btn-clear">Clear all history</button>
+    </main>
+  </div>
+
+  <!-- Sentiment overlay -->
+  <div class="overlay hidden" id="overlay-sentiment">
+    <div class="sheet">
+      <h3>Nice. How did it go?</h3>
+      <div class="sentiment-row">
+        <button class="sentiment-btn bad" id="btn-bad">
+          <span class="big-icon">👎</span>
+          <span>Not great</span>
+        </button>
+        <button class="sentiment-btn good" id="btn-good">
+          <span class="big-icon">👍</span>
+          <span>Went well</span>
+        </button>
+      </div>
+      <button class="text-btn" id="btn-skip-sentiment">Skip</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="lines.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
