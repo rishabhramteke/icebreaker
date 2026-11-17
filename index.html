@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#6c4cf1" />
+  <meta name="theme-color" content="#EDEFEC" />
   <title>Icebreaker</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icons/icon-180.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Icebreaker" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app">
     <!-- Top bar -->
     <header class="topbar">
-      <button class="icon-btn" id="nav-deck" title="Cards">🃏</button>
+      <button class="icon-btn" id="nav-deck" title="Cards" aria-label="Cards"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="4" width="11" height="15" /><path d="M3.5 7.5 V20.5 H14" /></svg></button>
       <h1 class="brand">Icebreaker</h1>
-      <button class="icon-btn" id="nav-history" title="Score &amp; history">📊</button>
+      <button class="icon-btn" id="nav-history" title="Score &amp; history" aria-label="Score and history"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 H20 M7 20 V13 M12 20 V8 M17 20 V11" /></svg></button>
     </header>
 
     <!-- DECK VIEW -->
@@ -29,9 +30,9 @@
         <!-- card injected here -->
       </div>
       <div class="deck-actions">
-        <button class="round-btn pass" id="btn-pass" title="Pass">✕</button>
-        <button class="round-btn shuffle" id="btn-shuffle" title="New line">↻</button>
-        <button class="round-btn accept" id="btn-accept" title="Take the challenge">→</button>
+        <button class="round-btn pass" id="btn-pass" title="Pass" aria-label="Pass"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18" /></svg></button>
+        <button class="round-btn shuffle" id="btn-shuffle" title="New line" aria-label="New line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 12 A6.5 6.5 0 1 1 15.6 6.6 M15 3.5 L16 6.9 L12.6 7.9" /></svg></button>
+        <button class="round-btn accept" id="btn-accept" title="Take the challenge" aria-label="Take the challenge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 H19 M13.5 6.5 L19 12 L13.5 17.5" /></svg></button>
       </div>
     </main>
 
@@ -45,11 +46,11 @@
       </div>
       <div class="challenge-actions">
         <button class="big-btn missed" id="btn-missed">
-          <span class="big-icon">✕</span>
+          <span class="big-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18" /></svg></span>
           <span>Didn't do it</span>
         </button>
         <button class="big-btn done" id="btn-done">
-          <span class="big-icon">✓</span>
+          <span class="big-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19 7" /></svg></span>
           <span>Did it!</span>
         </button>
       </div>
@@ -58,10 +59,11 @@
 
     <!-- HISTORY / SCORE VIEW -->
     <main class="view view-history hidden" id="view-history">
-      <div class="stats" id="stats"></div>
+      <dl class="stats" id="stats"></dl>
       <h2 class="section-title">History</h2>
       <div class="history-list" id="history-list"></div>
       <button class="text-btn danger" id="btn-clear">Clear all history</button>
+      <p class="colophon">From the <a href="/#journal">journal of Rishabh Ramteke</a>, next to the <a href="/side-quest">side quests</a>.</p>
     </main>
   </div>
 
@@ -71,11 +73,9 @@
       <h3>Nice. How did it go?</h3>
       <div class="sentiment-row">
         <button class="sentiment-btn bad" id="btn-bad">
-          <span class="big-icon">👎</span>
           <span>Not great</span>
         </button>
         <button class="sentiment-btn good" id="btn-good">
-          <span class="big-icon">👍</span>
           <span>Went well</span>
         </button>
       </div>

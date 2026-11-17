@@ -1,5 +1,5 @@
 // Simple offline cache for the Icebreaker app.
-var CACHE = "icebreaker-v1";
+var CACHE = "icebreaker-v2";
 var ASSETS = [
   "./",
   "./index.html",
@@ -8,6 +8,13 @@ var ASSETS = [
   "./lines.js",
   "./manifest.webmanifest",
   "./icons/icon.svg",
+  "./fonts/fonts.css",
+  "./fonts/Barlow-400-normal-latin.woff2",
+  "./fonts/Barlow-500-normal-latin.woff2",
+  "./fonts/Barlow-600-normal-latin.woff2",
+  "./fonts/BarlowCondensed-600-normal-latin.woff2",
+  "./fonts/SourceSerif4-400-normal-latin.woff2",
+  "./fonts/SourceSerif4-400-italic-latin.woff2",
 ];
 
 self.addEventListener("install", function (e) {

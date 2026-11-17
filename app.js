@@ -283,8 +283,8 @@
     }
     closeSentiment();
     show("deck");
-    if (val === "good") toast("Love that. Onto the next one. 🎉");
-    else if (val === "bad") toast("Logged. Brave of you to try. 💪");
+    if (val === "good") toast("Love that. Onto the next one.");
+    else if (val === "bad") toast("Logged. Brave of you to try.");
     else toast("Logged.");
   }
 
@@ -302,25 +302,25 @@
 
     var list = $("history-list");
     if (!h.length) {
-      list.innerHTML = '<p class="empty">No attempts yet. Swipe a card and go be brave. 💜</p>';
+      list.innerHTML = '<p class="empty">No attempts yet. Swipe a card and go be brave.</p>';
       return;
     }
     list.innerHTML = h.map(renderEntry).join("");
   }
   function stat(num, lbl) {
-    return '<div class="stat"><div class="num">' + num + '</div><div class="lbl">' + lbl + "</div></div>";
+    return '<div class="stat"><dt class="lbl">' + lbl + '</dt><dd class="num">' + num + "</dd></div>";
   }
   function renderEntry(e) {
     var statusPill = e.status === "done"
-      ? '<span class="pill done">✓ Did it</span>'
-      : '<span class="pill missed">✕ Passed on it</span>';
+      ? '<span class="pill done">Did it</span>'
+      : '<span class="pill missed">Passed on it</span>';
     var sentiment = "";
-    if (e.sentiment === "good") sentiment = '<span title="Went well">👍</span>';
-    else if (e.sentiment === "bad") sentiment = '<span title="Not great">👎</span>';
+    if (e.sentiment === "good") sentiment = '<span class="feel">went well</span>';
+    else if (e.sentiment === "bad") sentiment = '<span class="feel">not great</span>';
     var loc = "";
     if (e.location) {
       var url = "https://www.google.com/maps?q=" + e.location.lat + "," + e.location.lng;
-      loc = '<a href="' + url + '" target="_blank" rel="noopener">📍 map</a>';
+      loc = '<a href="' + url + '" target="_blank" rel="noopener">Map</a>';
     }
     return '<div class="entry">' +
       '<div class="e-line">' + escapeHtml(e.line) + "</div>" +
