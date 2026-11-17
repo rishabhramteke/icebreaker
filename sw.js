@@ -1,5 +1,5 @@
 // Simple offline cache for the Icebreaker app.
-var CACHE = "icebreaker-v2";
+var CACHE = "icebreaker-v3";
 var ASSETS = [
   "./",
   "./index.html",
